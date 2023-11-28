@@ -1,5 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const cors = require('cors')
 require('dotenv').config();
 
 const app = express();
@@ -7,7 +8,8 @@ const port = 3001;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+app.use(cors());
+// { credentials: true, origin: ['https://task-manager-kshitij.vercel.app', 'http://localhost:3000'] }
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
