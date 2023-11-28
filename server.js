@@ -16,6 +16,10 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+app.get('/', (req, res) => {
+    res.status(200).send('OK')
+})
+
 app.post('/send-email', (req, res) => {
     const { to } = req.body;
     const otp = generateOTP();
